@@ -1,0 +1,46 @@
+# Configuration file for Brain Tumor Detection and Classification
+
+# Model Architecture Configuration
+model:
+  input_shape: [150, 150, 3]
+  num_classes: 4
+  learning_rate: 0.001
+
+# Training Configuration
+training:
+  epochs: 40
+  batch_size: 40
+  validation_split: 0.0  # Using separate test set
+
+# Data Configuration
+data:
+  train_path: ../data/raw/Training
+  test_path: ../data/raw/Testing
+  img_size: [150, 150]
+  classes:
+    - glioma_tumor
+    - meningioma_tumor
+    - no_tumor
+    - pituitary_tumor
+
+# Data Augmentation Configuration
+augmentation:
+  rotation_range: 0
+  zoom_range: 0
+  width_shift_range: 0
+  height_shift_range: 0
+  horizontal_flip: true
+  vertical_flip: false
+
+# Paths Configuration
+paths:
+  models_dir: ../models
+  results_dir: ../Results
+  data_dir: ../data
+  best_model_name: best_model.h5
+
+# Logging Configuration
+logging:
+  verbose: true
+  save_metrics: true
+  plot_history: true
